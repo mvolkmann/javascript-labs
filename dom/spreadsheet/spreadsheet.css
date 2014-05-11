@@ -1,0 +1,46 @@
+* {
+  font-family: sans-serif;
+}
+
+#popup {
+  background-color: white;
+  border: solid Gray 2px;
+  border-radius: 5px;
+  display: none;
+  font-size: smaller;
+  padding: 5px;
+  position: absolute;
+  width: 40px;
+  z-index: 1;
+}
+
+#popup > div:hover {
+  background-color: LightGray;
+}
+
+#sheet, #sheet th, #sheet td {
+  border: solid LightGray 1px;
+  border-collapse: collapse;
+}
+
+/* cells */
+#sheet input {
+  border: none;
+  width: 200px;
+}
+
+/* headings */
+#sheet th {
+  color: Gray;
+  width: 200px;
+}
+
+/* row numbers */
+#sheet tr th {
+  text-align: center;
+  width: 50px;
+}
+
+.selected {
+  background-color: LightYellow;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Picker</title>
+    <link rel="stylesheet" type="text/css" href="colorPicker.css">
+    <script src="colorPicker.js"></script>
+  </head>
+  <body>
+    <div id="sliders">
+      <label for="red">Red</label>
+      <!-- range inputs are not supported yet in Firefox or IE. -->
+      <input id="red" type="range" min="0" max="255">
+      <br>
+      <label for="green">Green</label>
+      <input id="green" type="range" min="0" max="255">
+      <br>
+      <label for="blue">Blue</label>
+      <input id="blue" type="range" min="0" max="255">
+    </div>
+    <div id="swatch">Sample</div>
+    <div id="buttons">
+      <button id="okBtn">OK</button>
+      <button id="closeBtn">Close</button>
+    </div>
+  </body>
+</html>

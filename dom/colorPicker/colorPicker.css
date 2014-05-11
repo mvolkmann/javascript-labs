@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+}
+
+label {
+  color: blue;
+  display: inline-block;
+  font-weight: bold;
+  text-align: right;
+  width: 50px;
+}
+
+#buttons {
+  clear: left;
+}
+
+#sliders {
+  float: left;
+}
+
+#swatch {
+  border: solid black 1px;
+  display: inline-block;
+  float: left;
+  height: 90px;
+  padding: 5px;
+  width: 90px;
+}

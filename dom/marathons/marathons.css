@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+body {
+ font-family: sans-serif;
+}
+
+caption {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+table, th, td {
+  border-collapse: collapse;
+  border: solid black 1px;
+}
+
+th {
+  background-color: LightYellow;
+}
+
+th, td {
+  padding: 5px;
+}

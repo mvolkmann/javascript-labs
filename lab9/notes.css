@@ -1,0 +1,43 @@
+body {
+  background-color: linen;
+  font-family: sans-serif;
+}
+
+label {
+  color: red;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+#buttons {
+  text-align: center;
+}
+
+#messageArea {
+  display: none;
+  height: 30px;
+  width: 100%;
+}
+
+#textArea {
+  height: 280px;
+  width: 400px;
+}
+
+#titleInput {
+  width: 400px;
+}
+
+#titleSelect {
+  height: 100%;
+  margin-right: 20px;
+  width: 200px;
+}
+
+#titleSelect, #rightDiv {
+  float: left;
+}
+
+.row {
+  margin-bottom: 10px;
+}

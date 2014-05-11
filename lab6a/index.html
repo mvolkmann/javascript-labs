@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 6a</title>
+    <link rel="stylesheet" type="text/css" href="family.css"/>
+    <script src="family.js"></script>
+  </head>
+  <body>
+    <h1>My Family</h1>
+    <div>
+      <div>
+        <label>Name</label>
+        <input id="nameInput" type="text" value="Mark"/>
+      </div>
+      <div>
+        <label>Relationship</label>
+        <select id="relationshipSelect">
+          <option>me</option>
+          <option>spouse</option>
+          <option>father</option>
+          <option>mother</option>
+          <option>daughter</option>
+          <option>son</option>
+        </select>
+      </div>
+      <div>
+        <label>Age</label>
+        <input id="ageInput" type="number" value="52"/>
+      </div>
+      <div>
+        <label></label> <!-- for spacing -->
+        <button id="addBtn">Add</button>
+        <button id="deleteBtn" disabled>Delete Selected</button>
+      </div>
+    </div>
+    <table id="familyTable">
+      <tr>
+        <th>Select</th>
+        <th>Name</th>
+        <th>Relationship</th>
+        <th>Age</th>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="todo.css">
+    <script src="todo.js"></script>
+  </head>
+  <body>
+    <h2>To Do List</h2>
+    <div>
+      <div>
+        <span id="uncompleted-count-span"></span> of
+        <span id="todos-length-span"></span> remaining
+        <button id="archive-btn">Archive Completed</button>
+      </div>
+      <br>
+
+      <!-- Wrapping this in a form causes the button to be activated
+        when the input has focus and the return key is pressed. -->
+      <form>
+        <input id="text-input" type="text" size="30"
+          placeholder="enter new todo here">
+        <button id="add-btn" disabled>Add</button>
+      </form>
+
+      <ul id="list"></ul>
+    </div>
+  </body>
+</html>

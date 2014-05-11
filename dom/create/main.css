@@ -1,0 +1,18 @@
+* {
+  font-family: sans-serif;
+}
+
+fieldset {
+  margin-bottom: 10px;
+  width: 330px;
+}
+
+label {
+  color: blue;
+  font-weight: bold;
+}
+
+legend {
+  color: gray;
+}
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notes</title>
+    <link rel="stylesheet" type="text/css" href="notes.css"/>
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="notes.js"></script>
+  </head>
+  <body>
+    <h1>Notes</h1>
+    <div id="messageArea"></div>
+    <select id="titleSelect" class="row" size="24"></select>
+    <div id="rightDiv">
+      <div class="row">
+        <label for="titleInput">Title:</label>
+        <input id="titleInput" type="text"/>
+      </div>
+      <div class="row">
+        <label for="timestampSpan">Timestamp:</label>
+        <span id="timestampSpan"></span>
+      </div>
+      <div class="row">
+        <label for="textArea">Text:</label>
+        <textarea id="textArea"></textarea>
+        <div id="buttons">
+          <button id="saveBtn">Save</button>
+          <button id="newBtn">New</button>
+          <button id="deleteBtn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

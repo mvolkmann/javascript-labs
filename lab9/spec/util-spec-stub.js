@@ -1,0 +1,35 @@
+'use strict';
+/*global describe: false, expect: false, it: false, util: false */
+
+describe('formatDate', function () {
+  it('should format', function () {
+    var date = new Date(1961, 3, 16, 1, 2, 3);
+    var actual = util.formatDate(date);
+    var expected = '4/16/61 1:02:03 AM';
+    // TODO: Add an expect to verify that actual and expected match.
+  });
+});
+
+describe('padLeft', function () {
+  it('should pad', function () {
+    // TODO: Declare variable actual and set it to
+    // TODO: the result of calling util.padLeft on 3.
+    // TODO: Add an expect to verify that actual matches '03'.
+
+    // TODO: Set actual to the result of calling util.padLeft on 19.
+    // TODO: Add an expect to verify that actual matches '19'.
+
+    // TODO: Set actual to the result of calling util.padLeft on 789.
+    // TODO: Add an expect to verify that actual matches '789'.
+  });
+});
+
+// TODO: Create a test suite for 'sortingValue'.
+  // TODO: Create a test spec for 'should prep for sorting'.
+    // TODO: Add an expect to verify that these
+    // TODO: input -> output values for util.sortingValue.
+    // TODO: '' -> ''
+    // TODO: 'Foo Bar' -> 'foo bar'
+    // TODO: 'The Big Show' -> 'big show, the'
+    // TODO: 'A Large Show' -> 'large show, a'
+    // TODO: 'An Awesome Show' -> 'awesome show, an'

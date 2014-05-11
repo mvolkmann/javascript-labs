@@ -1,0 +1,9 @@
+body {
+  background-color: linen;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+#resultLine {
+  margin-top: 10px;
+}

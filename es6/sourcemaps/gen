@@ -1,0 +1,1 @@
+traceur --sourcemap --script demo6.js --out demo5.js

@@ -1,0 +1,18 @@
+{
+  "name": "jasmine-demo",
+  "version": "0.0.0",
+  "description": "Demonstrates use of the Jasmine test framework.",
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jasmine": "~0.5.2",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "scripts": {
+    "test": "grunt jasmine"
+  },
+  "author": "R. Mark Volkmann",
+  "license": "MIT"
+}
