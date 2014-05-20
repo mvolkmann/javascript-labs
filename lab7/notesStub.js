@@ -75,7 +75,7 @@ function clear() {
   messageArea.style.display = 'none';
   titleSelect.selectedIndex = -1; // nothing selected
   titleInput.value = '';
-  timestampSpan.innerText = '';
+  timestampSpan.textContent = '';
   textArea.value = '';
   enableButton(deleteBtn, false);
   currentNote = null;
@@ -147,7 +147,7 @@ function loadNotes() {
 }
 
 function log(msg) {
-  messageArea.innerText = msg;
+  messageArea.textContent = msg;
   messageArea.style.display = 'block';
 }
 
@@ -175,7 +175,7 @@ function selectNote() {
   var title = titleSelect.value;
   currentNote = notes[title];
   titleInput.value = title;
-  timestampSpan.innerText = formatDate(currentNote.timestamp);
+  timestampSpan.textContent = formatDate(currentNote.timestamp);
   textArea.value = currentNote.text;
   enableButton(deleteBtn, true);
 }

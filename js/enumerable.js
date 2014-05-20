@@ -4,7 +4,7 @@ Object.defineProperties(obj, {
   bar: {enumerable: true, writable: true, value: 2}
 });
 
-for (prop in obj) {
+for (var prop in obj) {
   console.log('for sees', prop, '=', obj[prop]); // only bar
 }
 
