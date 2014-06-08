@@ -51,5 +51,7 @@ var writeFile = function(fileName, data) {
 };
 
 var result = generateES5Data();
-writeFile('./data/non-ascii-identifier-start.js', result.nonAsciiIdentifierStart);
-writeFile('./data/non-ascii-identifier-part-only.js', result.nonAsciiIdentifierPart);
+writeFile('./data/non-ascii-identifier-start.js',
+  result.nonAsciiIdentifierStart);
+writeFile('./data/non-ascii-identifier-part-only.js',
+  result.nonAsciiIdentifierPart);
