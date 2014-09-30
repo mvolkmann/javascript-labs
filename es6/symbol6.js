@@ -2,10 +2,11 @@
 /*jshint esnext: true */
 /*global Symbol: false */
 
-var foo = Symbol('some description');
+// Note that the "new" keyword is not used to create a symbol,
+// but JSHint doesn't like it.
+var foo = Symbol('some description'); // note "new" keyword not used
 console.log('foo =', foo);
-console.log('foo.name =', foo.name);
-// should be "some description", but not set in Traceur
+console.log('foo.toString() =', foo.toString()); // "Symbol(some description)"
 
 console.log('foo.constructor =', foo.constructor);
 console.log('foo is a Symbol?', foo instanceof Symbol); // false in Traceur

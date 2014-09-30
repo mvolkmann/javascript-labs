@@ -6,7 +6,7 @@ If traceur was installed with "npm install -g traceur"
 then this file can be copied from `npm -g root`/traceur/bin.
 
 To build this demo
-  traceur --script main6.js --out gen/main.js --sourcemap
+  traceur --out gen/main.js --source-maps main6.js
 
 To run this demo in a modern browser
   open index.html

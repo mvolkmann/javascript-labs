@@ -28,6 +28,17 @@ System.register("../foo6", [], function() {
     console.log('in foo2');
     bar2();
   }
+  var obj = {
+    foo1: 'the value of foo1',
+    foo2: function() {
+      console.log('in foo2');
+      bar2();
+    }
+  };
+  var fooGlobalVar = 1;
+  function fooGlobalFn() {
+    console.log('in fooGlobalFn');
+  }
   return {
     get foo1() {
       return foo1;
@@ -37,12 +48,17 @@ System.register("../foo6", [], function() {
     }
   };
 });
-'use strict';
-var $__1 = System.get("../foo6"),
-    foo1 = $__1.foo1,
-    foo2 = $__1.foo2;
-console.log('in main');
-console.log('foo1 =', foo1);
-foo2();
+System.register("../main6", [], function() {
+  "use strict";
+  var __moduleName = "../main6";
+  var $__1 = System.get("../foo6"),
+      foo1 = $__1.foo1,
+      foo2 = $__1.foo2;
+  console.log('in main');
+  console.log('foo1 =', foo1);
+  foo2();
+  return {};
+});
+System.get("../main6" + '');
 
 //# sourceMappingURL=main.map

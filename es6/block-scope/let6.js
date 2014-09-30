@@ -8,7 +8,6 @@ if (a > 0) {
   console.log('b in block =', b);
 }
 console.log('a out of block =', a);
-a = 3; // jshint catches this
-console.log('after change, a =', a);
-console.log('b out of block =', b);
+//a = 3; // Traceur flags w as read-only
+console.log('b out of block =', b); // TODO: Why is this 2?
 console.log('at end');

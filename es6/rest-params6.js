@@ -8,7 +8,7 @@ function report(firstName, lastName, ...colors) {
   console.log(firstName, lastName, 'likes', phrase + '.');
 }
 
+report('John', 'Doe');
 report('Mark', 'Volkmann', 'yellow');
 report('Tami', 'Volkmann', 'pink', 'blue');
-report('John', 'Doe');
 

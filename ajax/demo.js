@@ -1,5 +1,21 @@
 'use strict';
 
+var foo = function (bar, baz) {
+  console.log('in foo');
+}
+
+let bar_3a = function (foo, baz) {
+  try {
+    console.log('in bar');
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+let baz = (x, y) => {
+  console.log('in baz');
+}
+
 function $(id) {
   return document.getElementById(id);
 }
