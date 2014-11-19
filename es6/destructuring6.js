@@ -3,7 +3,7 @@
 
 // Swapping variable values simultaneously.
 var a = 1, b = 2, c = 3;
-var [a, b, c] = [b, c, a];
+[a, b, c] = [b, c, a];
 console.log('a =', a); // 2
 console.log('b =', b); // 3
 console.log('c =', c); // 1
@@ -17,7 +17,8 @@ report(data); // Mark's favorite color is yellow.
 
 // Arrays
 var arr = [1, [2, 3], [[4, 5], [6, 7, 8]]];
-var [a, [, b], [[c], [,, d]]] = arr;
+var d;
+[a, [, b], [[c], [,, d]]] = arr;
 console.log('a =', a); // 1
 console.log('b =', b); // 3
 console.log('c =', c); // 4
