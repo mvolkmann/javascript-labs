@@ -9,7 +9,11 @@ class Shoe {
     Shoe.count += 1;
   }
 
-  static var count2 = 0;
+  //static var count = 0; DOESN'T WORK!
+
+  static createdAny() {
+    return Shoe.count > 0;
+  }
 
   equals(obj) {
     return obj instanceof Shoe &&
@@ -24,7 +28,6 @@ class Shoe {
 }
 
 Shoe.count = 0;
-Shoe.createdAny = () => Shoe.count > 0;
 
 var s1 = new Shoe('Mizuno', 'Precision 10', 13);
 var s2 = new Shoe('Nike', 'Free 5', 12);
