@@ -21,8 +21,8 @@ function* gen2(v) {
   }
 }
 
-var iter = gen2(1);
-var result = iter.next(); // can't pass data in first call to next
+let iter = gen2(1); // can pass value to generator function,
+let result = iter.next(); // but can't pass in first call to next
 console.log(result.value); // foo1
 
 result = iter.next(2);

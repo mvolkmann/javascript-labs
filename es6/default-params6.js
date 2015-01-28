@@ -1,7 +1,7 @@
 'use strict';
 /*jshint esnext: true */
 
-var today = new Date();
+let today = new Date();
 
 function makeDate(day, month = today.getMonth(), year = today.getFullYear()) {
   return new Date(year, month, day).toDateString();

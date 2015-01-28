@@ -19,7 +19,7 @@ function wrapAsyncFn(fn, ...args) {
 }
 
 function* myGenerator() {
-  var result = yield wrapAsyncFn(myAsyncFn, 'alpha');
+  let result = yield wrapAsyncFn(myAsyncFn, 'alpha');
   console.log(result);
   result = yield wrapAsyncFn(myAsyncFn, 'beta');
   console.log(result);
@@ -69,7 +69,7 @@ function callbackDemo() {
 }
 
 function promiseDemo() {
-  var result;
+  let result;
   await result = myPromiseFn('alpha');
   console.log(result);
   await result = myPromiseFn('beta');
@@ -83,7 +83,7 @@ promiseDemo().catch(ex => {
   console.error('error:', ex);
 });
 /*
-var result;
+let result;
 await result = myPromiseFn('alpha');
 console.log(result);
 await result = myPromiseFn('beta');

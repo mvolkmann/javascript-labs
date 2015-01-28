@@ -13,7 +13,7 @@ function* haiku(){
   console.log('- Kato Shuson');
 }
 
-var gen = haiku();
+let gen = haiku();
 console.log(gen.next()); // I kill an ant
 console.log(gen.next());
 console.log(gen.next());

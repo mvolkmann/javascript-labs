@@ -12,7 +12,7 @@ let values = arr[Symbol.iterator];
 console.log('values =', values);
 
 // Get the iterator using this array method.
-var iter = values.call(arr);
+let iter = values.call(arr);
 console.log('iter =', iter);
 
 // Use an explicit iterator.

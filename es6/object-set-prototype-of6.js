@@ -5,7 +5,7 @@ function Cat() {}
 
 function Dog() {}
 
-var animal = new Cat();
+let animal = new Cat();
 console.log('before, is a Cat?', animal instanceof Cat);
 console.log('before, is a Dog?', animal instanceof Dog);
 

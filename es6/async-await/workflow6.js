@@ -2,7 +2,7 @@
 /*jshint esnext: true */
 /*global Promise: false */
 
-var reject, resolve; // to make JSHint happy
+let reject, resolve; // to make JSHint happy
 
 function sleep(ms) {
   return new Promise(resolve => {
@@ -31,7 +31,7 @@ function badOp() {
 // in a way that makes them appear to be synchronous.
 // This avoids writing code in the pyramid of doom style.
 async function work() {
-  var n = 1;
+  let n = 1;
   try {
     n = await double(n);
     n = await triple(n);

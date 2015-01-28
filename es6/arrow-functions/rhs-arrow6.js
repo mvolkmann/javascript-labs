@@ -3,6 +3,6 @@
 
 // This shows that the RHS of an arrow function can be another arrow function
 // which allows an arrow function to return an arrow function.
-var foo = n => () => n * 2;
+let foo = n => () => n * 2;
 
 console.log('result =', foo(3)());

@@ -9,7 +9,7 @@ function* myGen() {
   }
 }
 
-var gen = myGen();
+let gen = myGen();
 // Must call next at least once before calling throw.
 console.log(gen.next());
 gen.throw('bar');

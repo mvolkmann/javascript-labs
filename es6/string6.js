@@ -1,5 +1,5 @@
 'use strict';
 /*jshint esnext: true */
 
-var s = 'Ho';
+let s = 'Ho';
 console.log(s.repeat(3));

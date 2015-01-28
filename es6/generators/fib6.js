@@ -24,7 +24,7 @@ function* take(iterator, n) {
 }
 
 function* fib() {
-  var [prev, curr] = [0, 1]; // doesn't work w/ let
+  let [prev, curr] = [0, 1]; // doesn't work w/ let
   while (true) {
     [prev, curr] = [curr, prev + curr];
     yield curr;
@@ -37,18 +37,18 @@ for (let value of fib()) {
   console.log(value);
 }
 
-var arr = [
+let arr = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 ];
 
 // Get iterator from array.
-var iter = arr.values();
-for (var result of take(skip(iter, 3), 5)) {
+let iter = arr.values();
+for (let result of take(skip(iter, 3), 5)) {
   console.log(result.value);
 }
 
 // With destructoring ...
-for (var {value} of take(skip(fib(), 3), 5)) {
+for (let {value} of take(skip(fib(), 3), 5)) {
   console.log(value);
 }

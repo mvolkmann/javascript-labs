@@ -2,7 +2,7 @@
 /*jshint esnext: true */
 /*global Promise: false */
 
-var reject, resolve; // to make JSHint happy
+let reject, resolve; // to make JSHint happy
 
 function double(n) {
   return new Promise(resolve => resolve(n * 2));
@@ -25,16 +25,16 @@ function badOp(n) {
 // that are yielded by the specified generator function.
 // It is a utility method that would only be written once.
 function async(generatorFn) {
-  var iter = generatorFn();
+  let iter = generatorFn();
   function success(result) {
-    var next = iter.next(result);
+    let next = iter.next(result);
     // next.value is a promise
     // next.done will be false when iter.next is called
     // after the last yield in workflow has run.
     if (!next.done) next.value.then(success, failure);
   }
   function failure(err) {
-    var next = iter.throw(err);
+    let next = iter.throw(err);
     // next.value is a promise
     // next.done will be false if the error was caught and handled.
     if (!next.done) next.value.then(success, failure);
@@ -47,7 +47,7 @@ function async(generatorFn) {
 // It calls them in a way that makes them appear to be synchronous.
 // It avoids writing code in the pyramid of doom style.
 async(function* () {
-  var n = 1;
+  let n = 1;
   try {
     n = yield double(n);
     n = yield triple(n);

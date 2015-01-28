@@ -1,16 +1,16 @@
-var teams = new Map();
+let teams = new Map();
 teams.set('Chicago', 'Cubs');
 teams.set('Kansas City', 'Royals');
 teams.set('St. Louis', 'Cardinals');
 
 // Other way to populate a Map.
 /*
-var arr = [
+let arr = [
   ['Chicago', 'Cubs'],
   ['Kansas City', 'Royals'],
   ['St. Louis', 'Cardinals']
 ];
-var teams = new Map(arr);
+let teams = new Map(arr);
 */
 
 console.log('teams.size =', teams.size);
@@ -34,13 +34,16 @@ console.log('\nentries are:');
 for (let entry of teams.entries()) {
   console.log(entry);
 }
+for (let [city, team] of teams) { // same
+  console.log('The', team, 'plays in', city);
+}
 
 console.log('\ndeleting Chicago');
 teams.delete('Chicago');
 console.log('teams.size =', teams.size);
 console.log('has Chicago =', teams.has('Chicago'));
 
-var objs = new Map();
+let objs = new Map();
 objs.set({color: 'red', size: 7}, [false, 1, 'alpha']);
 objs.set({color: 'green', size: 8}, [true, 2, 'beta']);
 objs.set({color: 'blue', size: 9}, [false, 3, 'gamma']);

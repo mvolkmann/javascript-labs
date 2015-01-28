@@ -11,12 +11,12 @@ async function asyncValue(value) {
 
 /*
 (async function() {
-  var value = await asyncValue(42);
+  let value = await asyncValue(42);
   console.log('value =', value);
   assert.equal(42, value);
   done();
 })();
 */
 
-var value = await asyncValue(42);
+let value = await asyncValue(42);
 console.log('value =', value);

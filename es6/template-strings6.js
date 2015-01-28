@@ -1,13 +1,13 @@
 'use strict';
 /*jshint esnext: true */
 
-var firstName = 'Mark';
-var lastName = 'Volkmann';
+let firstName = 'Mark';
+let lastName = 'Volkmann';
 
-var result = `Hello ${firstName} ${lastName}!`;
+let result = `Hello ${firstName} ${lastName}!`;
 console.log('untagged =', result);
 
-var mls = `one
+let mls = `one
 two
 three`;
 console.log('mls =', mls);
@@ -19,10 +19,10 @@ console.log('mls =', mls);
 function process(parts, ...data) {
   //console.log('parts =', parts);
   //console.log('data =', data);
-  var result = parts.shift();
-  var i = 0;
-  for (var part of parts) {
-    var d = data[i++];
+  let result = parts.shift();
+  let i = 0;
+  for (let part of parts) {
+    let d = data[i++];
     result += d.toUpperCase() + part;
   }
   return result;

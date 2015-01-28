@@ -9,7 +9,7 @@ class Shoe {
     Shoe.count += 1;
   }
 
-  //static var count = 0; DOESN'T WORK!
+  //static let count = 0; DOESN'T WORK!
 
   static createdAny() {
     return Shoe.count > 0;
@@ -29,9 +29,9 @@ class Shoe {
 
 Shoe.count = 0;
 
-var s1 = new Shoe('Mizuno', 'Precision 10', 13);
-var s2 = new Shoe('Nike', 'Free 5', 12);
-var s3 = new Shoe('Mizuno', 'Precision 10', 13);
+let s1 = new Shoe('Mizuno', 'Precision 10', 13);
+let s2 = new Shoe('Nike', 'Free 5', 12);
+let s3 = new Shoe('Mizuno', 'Precision 10', 13);
 console.log('created any?', Shoe.createdAny()); // true
 console.log('count =', Shoe.count); // 3
 console.log('s2 = ' + s2);
@@ -50,7 +50,7 @@ class RunningShoe extends Shoe {
   shouldReplace() { return this.miles >= 500; }
 }
 
-var rs = new RunningShoe(
+let rs = new RunningShoe(
   'Nike', 'Free Everyday', 13, 'lightweight trainer');
 rs.addMiles(400);
 console.log('should replace?', rs.shouldReplace()); // false

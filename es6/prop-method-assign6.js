@@ -1,7 +1,7 @@
 'use strict';
 /*jshint esnext: true */
 
-var obj = {
+let obj = {
   number: 2,
   multiply: function (n) { // old way
     return this.number * n;

@@ -2,8 +2,8 @@
 /*jshint esnext: true */
 /*global Symbol: false */
 
-var arr = [1, 2, 3, 5, 6, 8, 11];
-var isOdd = n => n % 2 === 1;
+let arr = [1, 2, 3, 5, 6, 8, 11];
+let isOdd = n => n % 2 === 1;
 
 // This is less efficient than using an iterator because
 // the Array filter method builds a new array and
@@ -13,7 +13,7 @@ arr.filter(isOdd).forEach((n) => console.log(n));
 // This is more efficient than the approach above.
 
 function getFilterIterator(arr, filter) {
-  var index = 0, result = {done: false};
+  let index = 0, result = {done: false};
   return {
     [Symbol.iterator]: () => ({
       next() {
@@ -42,12 +42,12 @@ class FilterIterator {
   [Symbol.iterator]() {
     let arr = this.arr;
     let filter = this.filter;
-    var index = 0;
+    let index = 0;
     return {
       next() {
         while (true) {
           if (index >= arr.length) return {done: true};
-          var value = arr[index++];
+          let value = arr[index++];
           if (filter(value)) return {value: value, done: false};
         }
       }

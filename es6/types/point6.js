@@ -1,6 +1,3 @@
-// Polyfill for new ES6 method not supported yet by Traceur.
-Math.hypot = (x, y) => Math.sqrt(x * x + y * y);
-
 class Point {
   constructor(x:number, y:number) {
     this.x = x;
@@ -12,6 +9,6 @@ class Point {
   }
 }
 
-var p1 = new Point(1, 2);
-var p2 = new Point(4, 6);
+let p1 = new Point(1, 2);
+let p2 = new Point(4, 6);
 console.log('distance =', p1.distanceFrom(p2));

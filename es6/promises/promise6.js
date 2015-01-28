@@ -22,7 +22,7 @@ asyncDouble(3).then(
 
 // Executing promises in series for side effects.
 // Only the last result is captured.
-var err, v; // to make JSHint happy
+let err, v; // to make JSHint happy
 asyncDouble(1).
   then((v) => asyncDouble(v)).
   then((v) => asyncDouble(v)).
@@ -31,7 +31,7 @@ asyncDouble(1).
   catch((err) => console.log('error:', err));
 
 // Executing promises in parallel and capturing all results.
-var promises = [
+let promises = [
   asyncDouble(1),
   asyncDouble(2),
   asyncDouble(3)
