@@ -24,7 +24,7 @@ function* take(iterator, n) {
 }
 
 function* fib() {
-  let [prev, curr] = [0, 1]; // doesn't work w/ let
+  let [prev, curr] = [0, 1];
   while (true) {
     [prev, curr] = [curr, prev + curr];
     yield curr;

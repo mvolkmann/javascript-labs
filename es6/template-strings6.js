@@ -1,4 +1,3 @@
-'use strict';
 /*jshint esnext: true */
 
 let firstName = 'Mark';
@@ -12,20 +11,14 @@ two
 three`;
 console.log('mls =', mls);
 
-// Could perform special escaping of the parts or the data.
-// I think what Traceur passes for the first parameter
-// doesn't match the spec.
-//function process({raw, cooked}, ...data) {
-function process(parts, ...data) {
-  //console.log('parts =', parts);
-  //console.log('data =', data);
-  let result = parts.shift();
-  let i = 0;
-  for (let part of parts) {
-    let d = data[i++];
-    result += d.toUpperCase() + part;
-  }
+// Could perform special escaping or translation of the strings or values.
+function upValues(strings, ...values) {
+  //console.log('strings =', strings);
+  //console.log('values =', values);
+  let result = strings[0];
+  values.forEach((value, index) =>
+    result += value.toUpperCase() + strings[index + 1]);
   return result;
 }
-result = process `Hello ${firstName} ${lastName}!`;
-console.log('tagged =', result);
+result = upValues `Hello ${firstName} ${lastName}!`;
+console.log(result);

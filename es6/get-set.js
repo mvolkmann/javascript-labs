@@ -1,17 +1,21 @@
-'use strict';
 /*jshint esnext: true */
+
+let sizeProp = Symbol();
 
 class Shoe {
   get size() {
     console.log('in getter for size');
-    return Reflect.get(this, 'size');
+    //return this._size;
+    return this[sizeProp];
   }
   set size(size) {
     console.log('in setter for size');
-    Reflect.set(this, 'size', size);
+    //this._size = size;
+    this[sizeProp] = size;
   }
 }
 
 let s = new Shoe();
 s.size = 13; // invokes setter
-console.log(s.size); // invokes getter
+console.log('size =', s.size); // invokes getter
+console.log('s =', s);
