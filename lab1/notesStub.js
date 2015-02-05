@@ -155,7 +155,7 @@ function getTitle(fileName) {
   // TODO: the index of the last period in fileName.
 
   // TODO: Return the result of getting the characters in fileName
-  // TODO: before the first period and replacing all hyphens with spaces.
+  // TODO: before the last period and replacing all hyphens with spaces.
 }
 
 function help() {
@@ -267,7 +267,7 @@ function sortingValue(title) {
   // TODO: Set first to the first word in titleLower.
 
   // TODO: Set rest to the part of titleLower after the first space.
- 
+
   // TODO: Set change to a boolean that indicates
   // TODO: whether first is 'the', 'a' or 'an'.
 
