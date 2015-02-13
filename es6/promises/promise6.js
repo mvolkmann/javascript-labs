@@ -1,4 +1,3 @@
-'use strict';
 /*jshint esnext: true */
 /*global Promise: false */
 
@@ -11,14 +10,6 @@ function asyncDouble(n) {
     }
   });
 }
-
-asyncDouble(3).then(
-  //data => console.log('data =', data),
-  data => {
-    throw 'Did you see this?'; // no, you didn't!
-    console.log('data =', data);
-  },
-  err => console.error('error:', err));
 
 // Executing promises in series for side effects.
 // Only the last result is captured.
@@ -43,3 +34,15 @@ Promise.all(promises).then(
   err => {
     console.error('all error:', err);
   });
+
+let p = asyncDouble(3).then(
+  data => {
+    // This causes the promise returned by
+    // the call to then above to be rejected.
+    throw 'Did you see this?';
+  },
+  err => console.error('error:', err)); // not reached
+
+p.then(
+  value => console.log('resolved with', value),
+  reason => console.log('rejected with', reason));

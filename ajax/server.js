@@ -4,8 +4,8 @@
 // curl -XPOST http://localhost:3000/sum \
 //   -H'Content-Type: application/json' -d"[1, 2, 3, 4]"
 
-var express = require('express');
 var bodyParser = require('body-parser');
+var express = require('express');
 var app = express();
 
 // Serve static files in the current directory.
