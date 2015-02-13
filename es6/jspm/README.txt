@@ -49,3 +49,10 @@ JavaScript Package Manager (jspm)
     - also add a script tag for the Traceur runtime
       <script src="jspm_packages/traceur-runtime.js"></script>
     - see example prod-index.html file
+  * there are other bundling options,
+    but this seems like the best
+
+- to make your open packages compatible with jspm
+  * see https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm
+  * can publish in npm or Github
+  * allows others to install them using jspm
