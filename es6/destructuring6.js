@@ -11,7 +11,7 @@ console.log('c =', c); // 1
 // Function parameters.
 function report([name, color]) {
   console.log(name + "'s favorite color is", color + '.');
-} 
+}
 let data = ['Mark', 'yellow'];
 report(data); // Mark's favorite color is yellow.
 

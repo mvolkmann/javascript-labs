@@ -1,6 +1,8 @@
 JavaScript Package Manager (jspm)
 
+- see http://jspm.io/
 - works on top of System.js
+  * see https://github.com/systemjs/systemjs
 
 - steps to use
   * npm install -g jspm
@@ -16,18 +18,18 @@ JavaScript Package Manager (jspm)
   * automatically generates sourcemaps
 
 - to install a module from npm and register it in config.js
-  which is references from index.html
+  which is referenced from index.html
   * for packages in npm,
     jspm install npm:{module-name}
     - ex. jsonp
+    - will install in jspm_packages/npm
     - may require configuration
-  * for packages in Github,
+  * for packages in GitHub,
     jspm install github:{module-name}
     - may require configuration
   * for well-known packages,
     jspm install {module-name}
     - ex. jquery
-  * will install in jspm_packages/npm
   * will add dependency to package.json
   * will add to System.config call in config.js
     which is included via a script tag in index.html
@@ -52,7 +54,7 @@ JavaScript Package Manager (jspm)
   * there are other bundling options,
     but this seems like the best
 
-- to make your open packages compatible with jspm
+- to make your own packages compatible with jspm
   * see https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm
-  * can publish in npm or Github
+  * can publish in npm or GitHub
   * allows others to install them using jspm

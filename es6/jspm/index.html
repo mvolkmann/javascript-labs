@@ -3,9 +3,7 @@
   <head>
     <title>jspm demo</title>
     <meta charset="utf-8">
-  </head>
-  <body>
-    body goes here
+    <link rel="stylesheet" href="main.css">
 
     <!-- Enable ES6 module loading and more. -->
     <script src="jspm_packages/system.js"></script>
@@ -13,11 +11,15 @@
     <!-- Enable loading dependencies that were installed with jspm. -->
     <script src="config.js"></script>
 
-    <!-- Load the main JavaScript file that can import others. -->
-    <script>
-      // In this example, main.js is in same directory.
-      // Can also specify a relative directory path.
-      System.import('main');
-    </script>
+    <!-- Load the main JavaScript file that can import others.
+         In this example, main.js is in same directory.
+        Can also specify a relative directory path. -->
+    <script>System.import('main');</script>
+  </head>
+  <body>
+    <label>Name</label>
+    <input id="name-input" class="form-control" value="Richard Mark Volkmann">
+    <button id="get-initials-btn" class="btn btn-default">Get Initials</button>
+    <div id="content"></div>
   </body>
 </html>

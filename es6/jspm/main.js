@@ -1,7 +1,7 @@
+import 'bootstrap';
 import * as math from './math';
-import stringUtil from './string-util';
-
-console.log('main.js entered');
+import * as strUtil from './str-util';
+import $ from 'jquery';
 
 let name = 'Mark';
 console.log(`Hello, ${name}!`);
@@ -9,5 +9,13 @@ console.log(`Hello, ${name}!`);
 console.log('sum =', math.sum(19, 6));
 console.log('diff =', math.diff(19, 6));
 
-console.log('cameled =', stringUtil.camel('foo bar baz'));
-console.log('initials are', stringUtil.initials('Richard Mark Volkmann'));
+console.log('cameled =', strUtil.camel('foo bar baz'));
+
+$('#get-initials-btn').click(() => {
+  let name = $('#name-input').val();
+  console.log('main.js x: name =', name);
+  let initials = strUtil.initials(name);
+  $('#content').text('initials are ' + initials);
+});
+
+$('body').show();

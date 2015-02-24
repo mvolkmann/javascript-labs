@@ -1,0 +1,10 @@
+body {
+  display: none;
+  padding: 10px;
+}
+
+input.form-control {
+  display: inline-block;
+  vertical-align: middle;
+  width: 180px;
+}
