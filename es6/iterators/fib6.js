@@ -2,12 +2,11 @@
 
 let fibonacci = {
   [Symbol.iterator]() {
-    let prev = 0, curr = 1, result = {done: false};
+    let prev = 0, curr = 1;
     return {
       next() {
         [prev, curr] = [curr, prev + curr];
-        result.value = curr;
-        return result;
+        return {value: curr};
       }
     };
   }

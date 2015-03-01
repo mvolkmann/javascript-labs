@@ -22,3 +22,22 @@ function upValues(strings, ...values) {
 }
 result = upValues `Hello ${firstName} ${lastName}!`;
 console.log(result);
+
+function dedent(strings, ...values) {
+  console.log('template-strings6.js dedent: strings =', strings);
+  let last = strings.length - 1, re = /\n\s+/g, result = '';
+  for (let i = 0; i < last; i++) {
+    result += strings[i].replace(re, '\n') + values[i];
+  }
+  return result + strings[last];
+}
+
+let homeTeam = 'Cardinals';
+let visitingTeam = 'Cubs';
+console.log(dedent `Today the ${homeTeam}
+                    are hosting the ${visitingTeam}.`);
+// If template starts with an expression, strings will start with ''.
+// If template ends with an expression, strings will end with ''.
+console.log(dedent `${homeTeam}
+                    versus
+                    ${visitingTeam}`);

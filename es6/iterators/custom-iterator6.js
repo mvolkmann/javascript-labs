@@ -13,14 +13,14 @@ arr.filter(isOdd).forEach((n) => console.log(n));
 // This is more efficient than the approach above.
 
 function getFilterIterator(arr, filter) {
-  let index = 0, result = {done: false};
+  let index = 0;
   return {
     [Symbol.iterator]: () => ({
       next() {
         while (true) {
           if (index >= arr.length) return {done: true};
-          result.value = arr[index++];
-          if (filter(result.value)) return result;
+          let value = arr[index++];
+          if (filter(value)) return {value};
         }
       }
     })
@@ -48,7 +48,7 @@ class FilterIterator {
         while (true) {
           if (index >= arr.length) return {done: true};
           let value = arr[index++];
-          if (filter(value)) return {value: value, done: false};
+          if (filter(value)) return {value};
         }
       }
     };
