@@ -9,16 +9,18 @@ var gulp = require('gulp');
 var jasmine = require('gulp-jasmine');
 var jshint = require('gulp-jshint');
 var less = require('gulp-less');
+// Looks like plumber isn't needed with Gulp 4!
 //var plumber = require('gulp-plumber');
 var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
-//var watch = require('gulp-watch');
+var uglify = require('gulp-uglify');
 
 var paths = {
   build: 'build',
   css: 'build/**/*.css',
   html: ['index.html', 'src/**/*.html'],
-  js: ['src/**/*.js', 'test/**/*.js'],
+  js: ['src/**/*.js'],
+  jsWithTests: ['src/**/*.js', 'test/**/*.js'],
   less: 'src/**/*.less',
   test: 'build/**/*-test.js'
 };
@@ -46,7 +48,7 @@ gulp.task('csslint', function () {
 });
 
 gulp.task('eslint', function () {
-  return gulp.src(paths.js).
+  return gulp.src(paths.jsWithTests).
     pipe(changed(paths.build)).
     //pipe(plumber()).
     pipe(eslint({
@@ -65,7 +67,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('jshint', function () {
-  return gulp.src(paths.js).
+  return gulp.src(paths.jsWithTests).
     pipe(changed(paths.build)).
     //pipe(plumber()).
     pipe(jshint()).
@@ -86,8 +88,8 @@ gulp.task('test', function () {
     pipe(jasmine());
 });
 
-gulp.task('transpile', function () {
-  return gulp.src(paths.js).
+gulp.task('transpile-dev', function () {
+  return gulp.src(paths.jsWithTests).
     pipe(changed(paths.build)).
     //pipe(plumber()).
     pipe(sourcemaps.init()).
@@ -103,6 +105,7 @@ gulp.task('transpile-prod', function () {
     pipe(sourcemaps.init()).
     pipe(babel()).
     pipe(concat('all.js')).
+    //pipe(uglify()).
     pipe(sourcemaps.write('.')).
     pipe(gulp.dest(paths.build));
 });
@@ -111,9 +114,10 @@ gulp.task('watch', function () {
   console.log('in watch task');
   gulp.watch(paths.html, 'html');
   gulp.watch(paths.less, gulp.series('less', 'csslint'));
-  gulp.watch(paths.js, gulp.series('eslint', 'jshint', 'transpile'));
+  gulp.watch(paths.jsWithTests, gulp.series('eslint', 'jshint', 'transpile-dev'));
 });
 
-gulp.task('build', gulp.parallel('less', 'transpile'));
+gulp.task('build-dev', gulp.parallel('less', 'transpile-dev'));
+gulp.task('build-prod', gulp.parallel('less', 'transpile-prod'));
 
-gulp.task('default', gulp.series('build', gulp.parallel('connect', 'watch')));
+gulp.task('default', gulp.series('build-dev', gulp.parallel('connect', 'watch')));

@@ -1,3 +1,5 @@
+/*global exports: false */
+
 function capitalize(text) {
   if (!text) return text;
   return text.split(' ').
@@ -12,8 +14,9 @@ function camel(text) {
     join('');
 }
 
-// If running from a Jasmine test ...
-if (exports) {
+try {
   exports.capitalize = capitalize;
   exports.camel = camel;
+} catch (e) {
+  // ignore - happens when not running a Jasmine test
 }
