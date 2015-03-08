@@ -17,7 +17,7 @@ let obj = {
   foo: 1,
   bar: 2,
   baz: 3
-}
+};
 for (let value of obj) {
   console.log(value);
 }
