@@ -25,6 +25,10 @@ var paths = {
   test: 'build/**/*-test.js'
 };
 
+gulp.task('hello', function () {
+  console.log('Hello, World!');
+});
+
 gulp.task('clean', function (cb) {
   del(paths.build, cb);
 });
@@ -111,13 +115,14 @@ gulp.task('transpile-prod', function () {
 });
 
 gulp.task('watch', function () {
-  console.log('in watch task');
   gulp.watch(paths.html, 'html');
   gulp.watch(paths.less, gulp.series('less', 'csslint'));
-  gulp.watch(paths.jsWithTests, gulp.series('eslint', 'jshint', 'transpile-dev'));
+  gulp.watch(paths.jsWithTests,
+    gulp.series('eslint', 'jshint', 'transpile-dev'));
 });
 
 gulp.task('build-dev', gulp.parallel('less', 'transpile-dev'));
 gulp.task('build-prod', gulp.parallel('less', 'transpile-prod'));
 
-gulp.task('default', gulp.series('build-dev', gulp.parallel('connect', 'watch')));
+gulp.task('default',
+  gulp.series('build-dev', gulp.parallel('connect', 'watch')));
