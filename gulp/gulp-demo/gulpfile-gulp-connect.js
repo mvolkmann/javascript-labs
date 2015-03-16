@@ -1,9 +1,6 @@
-var connect = require('connect');
-var del = require('del');
+var del = require('del'); // not a gulp plugin
 var gulp = require('gulp');
-var http = require('http');
 var pi = require('gulp-load-plugins')();
-var serveStatic = require('serve-static');
 
 var paths = {
   build: 'build',
@@ -15,37 +12,8 @@ var paths = {
   test: 'build/**/*-test.js'
 };
 
-function arrContains(arr, value) {
-  for (var i in arr) {
-    if (arr[i] === value) return true;
-  }
-  return false;
-}
-
-function walkPrototypes(obj, detailFor) {
-  var proto = Object.getPrototypeOf(obj);
-  if (proto) {
-    var ctor = proto.constructor;
-    console.log('\nctor name =', ctor.name);
-    console.log('prototype =', ctor.prototype);
-
-    if (!detailFor || arrContains(detailFor, ctor.name)) {
-      var p = ctor.prototype;
-      Object.keys(p).forEach(function (key) {
-        console.log(key, '=', p[key]);
-      });
-    }
-
-    walkPrototypes(proto, detailFor);
-  }
-}
-
 gulp.task('hello', function () {
   console.log('Hello, World!');
-
-  //console.log('gulp =', gulp);
-  //walkPrototypes(gulp, ['Gulp', 'Undertaker']);
-  console.log('src =', gulp.src);
 });
 
 gulp.task('clean', function (cb) {
@@ -53,9 +21,12 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('connect', function () {
-  var app = connect();
-  app.use(serveStatic(__dirname));
-  http.createServer(app).listen(1919);
+  pi.connect.server({
+    port: 1919,
+    root: __dirname,
+    livereload: true
+    // Don't have to manually add livereload script tag to index.html!
+  });
 });
 
 gulp.task('csslint', function () {
@@ -81,7 +52,7 @@ gulp.task('eslint', function () {
 
 gulp.task('html', function () {
   gulp.src(paths.html).
-    pipe(pi.livereload());
+    pipe(pi.connect.reload());
 });
 
 gulp.task('jshint', function () {
@@ -96,7 +67,7 @@ gulp.task('less', function () {
     pipe(pi.less()).
     pipe(pi.changed(paths.build)).
     pipe(gulp.dest(paths.build)).
-    pipe(pi.livereload());
+    pipe(pi.connect.reload());
 });
 
 gulp.task('test', function () {
@@ -113,7 +84,7 @@ gulp.task('transpile-dev', function () {
     pipe(pi.babel()).
     pipe(pi.sourcemaps.write('.')).
     pipe(gulp.dest(paths.build)).
-    pipe(pi.livereload());
+    pipe(pi.connect.reload());
 });
 
 gulp.task('transpile-prod', function () {
@@ -127,7 +98,6 @@ gulp.task('transpile-prod', function () {
 });
 
 gulp.task('watch', function () {
-  pi.livereload.listen();
   gulp.watch(paths.html, 'html');
   gulp.watch(paths.less, gulp.series('less', 'csslint'));
   gulp.watch(paths.jsPlusTests,

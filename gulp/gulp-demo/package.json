@@ -17,15 +17,20 @@
     "gulp-babel": "^4.0.0",
     "gulp-changed": "^1.1.1",
     "gulp-concat": "^2.5.2",
-    "gulp-connect": "^2.2.0",
     "gulp-csslint": "^0.1.5",
     "gulp-eslint": "^0.6.0",
     "gulp-jasmine": "^2.0.0",
     "gulp-jshint": "^1.9.2",
     "gulp-less": "^3.0.1",
-    "gulp-plumber": "^0.6.6",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-plumber": "^1.0.0",
     "gulp-sourcemaps": "^1.5.0",
     "gulp-uglify": "^1.1.0",
     "gulp-watch": "^4.1.1"
+  },
+  "dependencies": {
+    "connect": "^3.3.4",
+    "serve-static": "^1.9.1"
   }
 }

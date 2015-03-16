@@ -7,4 +7,6 @@ function load() {
   title.textContent = capitalize(text);
 }
 
+console.log('loaded at', Date.now());
+
 window.onload = load;
