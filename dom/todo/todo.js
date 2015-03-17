@@ -9,6 +9,7 @@
   function addTodo() {
     createTodo({text: todoTextInput.value, done: false});
     todoTextInput.value = ''; // clears input
+    addBtn.disabled = true;
   }
 
   function createTodo(todo) {
