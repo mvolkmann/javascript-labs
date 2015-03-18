@@ -1,8 +1,7 @@
 'use strict';
+/*global document: false, window: false, XMLHttpRequest: false */
 
-function $(id) {
-  return document.getElementById(id);
-}
+var $ = document.getElementById.bind(document);
 
 function getNumbers() {
   var lines, numbers;
