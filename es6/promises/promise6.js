@@ -15,11 +15,11 @@ function asyncDouble(n) {
 // Only the last result is captured.
 let err, v; // to make JSHint happy
 asyncDouble(1).
-  then((v) => asyncDouble(v)).
-  then((v) => asyncDouble(v)).
+  then(v => asyncDouble(v)).
+  then(v => asyncDouble(v)).
   //then((v) => asyncDouble('bad')).
-  then((v) => console.log('success: v =', v)).
-  catch((err) => console.log('error:', err));
+  then(v => console.log('success: v =', v)).
+  catch(err => console.error('error:', err));
 
 // Executing promises in parallel and capturing all results.
 let promises = [
@@ -36,7 +36,7 @@ Promise.all(promises).then(
   });
 
 let p = asyncDouble(3).then(
-  data => {
+  v => {
     // This causes the promise returned by
     // the call to then above to be rejected.
     throw 'Did you see this?';

@@ -7,7 +7,7 @@ colors.add('green');
 colors.add('blue');
 colors.add('red');
 
-// Another way to populate a Set.
+// Another way to populate a Set
 //let arr = ['red', 'green', 'blue', 'red'];
 //let colors = new Set(arr);
 
@@ -17,12 +17,6 @@ console.log('has pink =', colors.has('pink'));
 
 console.log('\nkeys are:');
 colors.forEach(key => console.log(key));
-
-// Another way to iterate over keys.
-console.log('\nkeys again are:');
-for (let key of colors) {
-  console.log(key);
-}
 
 console.log('\nvalues are:');
 for (let value of colors.values()) {

@@ -3,7 +3,7 @@ teams.set('Chicago', 'Cubs');
 teams.set('Kansas City', 'Royals');
 teams.set('St. Louis', 'Cardinals');
 
-// Other way to populate a Map.
+// Another way to populate a Map.
 /*
 let arr = [
   ['Chicago', 'Cubs'],
@@ -20,6 +20,7 @@ console.log('St. Louis', teams.get('St. Louis'));
 
 console.log('\nkeys are:');
 teams.forEach((value, key) => console.log(key));
+
 // Another way to iterate over keys.
 for (let key of teams.keys()) {
   console.log(key);

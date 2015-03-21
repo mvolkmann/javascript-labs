@@ -45,7 +45,7 @@ gulp.task('hello', function () {
 
   //console.log('gulp =', gulp);
   //walkPrototypes(gulp, ['Gulp', 'Undertaker']);
-  console.log('src =', gulp.src);
+  console.log('gulp.task =', gulp.task);
 });
 
 gulp.task('clean', function (cb) {
@@ -99,13 +99,6 @@ gulp.task('less', function () {
     pipe(pi.livereload());
 });
 
-gulp.task('test', function () {
-  console.log('IN TEST TASK');
-  return gulp.src(paths.test).
-    pipe(pi.plumber()).
-    pipe(pi.jasmine());
-});
-
 gulp.task('transpile-dev', function () {
   return gulp.src(paths.jsPlusTests).
     pipe(pi.changed(paths.build)).
@@ -126,12 +119,18 @@ gulp.task('transpile-prod', function () {
     pipe(gulp.dest(paths.build));
 });
 
+gulp.task('test', gulp.series('transpile-dev', function () {
+  return gulp.src(paths.test).
+    pipe(pi.plumber()).
+    pipe(pi.jasmine());
+}));
+
 gulp.task('watch', function () {
   pi.livereload.listen();
   gulp.watch(paths.html, 'html');
   gulp.watch(paths.less, gulp.series('less', 'csslint'));
   gulp.watch(paths.jsPlusTests,
-    gulp.series('eslint', 'jshint', 'transpile-dev', 'test'));
+    gulp.series('eslint', 'jshint', 'transpile-dev'));
 });
 
 gulp.task('build-dev', gulp.parallel('less', 'transpile-dev'));
