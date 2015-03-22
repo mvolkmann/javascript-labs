@@ -1,5 +1,6 @@
 var connect = require('connect');
 var del = require('del');
+var fs = require('fs');
 var gulp = require('gulp');
 var http = require('http');
 var pi = require('gulp-load-plugins')();
@@ -45,7 +46,7 @@ gulp.task('hello', function () {
 
   //console.log('gulp =', gulp);
   //walkPrototypes(gulp, ['Gulp', 'Undertaker']);
-  console.log('gulp.task =', gulp.task);
+  console.log('gulp.src =', gulp.src);
 });
 
 gulp.task('clean', function (cb) {
