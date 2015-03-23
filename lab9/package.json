@@ -1,8 +1,8 @@
 {
-  "name": "GruntLab",
+  "name": "JasmineLab",
   "version": "0.0.0",
   "description": "This is a lab exercise to practice using Jasmine.",
-  "main": "Gruntfile.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -20,10 +20,19 @@
     "grunt-contrib-jasmine": "~0.6.1",
     "grunt-contrib-jshint": "~0.7.1",
     "grunt-contrib-watch": "~0.5.3",
+    "gulp-csslint": "^0.1.5",
+    "gulp-jasmine": "^2.0.0",
+    "gulp-jshint": "^1.9.4",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.9.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-watch": "^4.2.0",
     "matchdep": "~0.3.0"
   },
   "dependencies": {
     "body-parser": "~1.1.1",
-    "express": "~4.1.2"
+    "connect": "^3.3.5",
+    "express": "~4.1.2",
+    "serve-static": "^1.9.2"
   }
 }

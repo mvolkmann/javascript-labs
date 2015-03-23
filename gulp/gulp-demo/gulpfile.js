@@ -1,6 +1,5 @@
 var connect = require('connect');
 var del = require('del');
-var fs = require('fs');
 var gulp = require('gulp');
 var http = require('http');
 var pi = require('gulp-load-plugins')();

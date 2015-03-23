@@ -4,27 +4,27 @@ var http = require('http');
 
 exports.getContent = function (url, cb) {
   http.get(url, function (res) {
-    var page = '';
+    var content = '';
     res.on('data', function (buf) {
-      page += buf.toString();
+      content += buf.toString();
     });
     res.on('end', function (buf) {
-      cb(page);
+      cb(content);
     });
   });
 };
 
 exports.getLength = function (url, cb) {
-  exports.getContent(url, function (page) {
-    cb(page.length);
+  exports.getContent(url, function (content) {
+    cb(content.length);
   });
 };
 
 exports.getTitle = function (url, cb) {
-  exports.getContent(url, function (page) {
+  exports.getContent(url, function (content) {
     var token = '<title>';
-    var startIndex = page.indexOf(token);
-    var endIndex = page.indexOf('</title>', startIndex);
-    cb(page.substring(startIndex + token.length , endIndex));
+    var startIndex = content.indexOf(token);
+    var endIndex = content.indexOf('</title>', startIndex);
+    cb(content.substring(startIndex + token.length , endIndex));
   });
 };
