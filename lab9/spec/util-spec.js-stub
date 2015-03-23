@@ -1,5 +1,8 @@
 'use strict';
-/*global describe: false, expect: false, it: false, util: false */
+/*global describe: false, expect: false, it: false, util: true */
+
+// gulp needs this
+if (!util) var util = require('../scripts/util');
 
 describe('formatDate', function () {
   it('should format', function () {
