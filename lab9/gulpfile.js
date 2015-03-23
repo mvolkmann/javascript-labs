@@ -8,22 +8,17 @@ var paths = {
 
 gulp.task('csslint', function () {
   return gulp.src(paths.css).
-    pipe(pi.csslint({
-      ids: false
-    })).
-    pipe(pi.csslint.reporter()).
-    pipe(pi.livereload());
+    pipe(pi.csslint({ids: false})).
+    pipe(pi.csslint.reporter());
 });
 
 gulp.task('jshint', function () {
   return gulp.src(paths.js).
     pipe(pi.jshint()).
-    pipe(pi.jshint.reporter('default')).
-    pipe(pi.livereload());
+    pipe(pi.jshint.reporter('default'));
 });
 
 gulp.task('test', function () {
   return gulp.src(paths.js).
-    pipe(pi.plumber()).
     pipe(pi.jasmine());
 });
