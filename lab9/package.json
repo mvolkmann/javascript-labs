@@ -20,6 +20,7 @@
     "grunt-contrib-jasmine": "~0.6.1",
     "grunt-contrib-jshint": "~0.7.1",
     "grunt-contrib-watch": "~0.5.3",
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-csslint": "^0.1.5",
     "gulp-jasmine": "^2.0.0",
     "gulp-jshint": "^1.9.4",
