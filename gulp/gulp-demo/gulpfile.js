@@ -93,8 +93,8 @@ gulp.task('jshint', function () {
 
 gulp.task('less', function () {
   return gulp.src(paths.less).
-    pipe(pi.less()).
     pipe(pi.changed(paths.build)).
+    pipe(pi.less()).
     pipe(gulp.dest(paths.build)).
     pipe(pi.livereload());
 });

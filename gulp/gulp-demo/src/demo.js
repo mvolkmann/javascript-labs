@@ -2,7 +2,7 @@
 /*global capitalize: false */
 
 function load() {
-  const text = 'gulp demo'
+  const text = 'gulp demo';
   let title = document.getElementById('title');
   title.textContent = capitalize(text);
 }
