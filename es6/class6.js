@@ -43,7 +43,7 @@ console.log('created any?', Shoe.createdAny()); // true
 console.log('count =', Shoe.count); // 3
 console.log('s2 = ' + s2);
 console.log('s1.equals(s2) =', s1.equals(s2)); // false
-console.log('s3.equals(s3) =', s3.equals(s3)); // true
+console.log('s1.equals(s3) =', s1.equals(s3)); // true
 
 class RunningShoe extends Shoe {
   constructor(brand, model, size, type) {

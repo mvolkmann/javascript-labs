@@ -29,7 +29,7 @@ function dedent(strings, ...values) {
   for (let i = 0; i < last; i++) {
     result += strings[i].replace(re, '\n') + values[i];
   }
-  return result + strings[last];
+  return result + strings[last].replace(re, '\n');
 }
 
 let homeTeam = 'Cardinals';
@@ -41,3 +41,16 @@ console.log(dedent `Today the ${homeTeam}
 console.log(dedent `${homeTeam}
                     versus
                     ${visitingTeam}`);
+
+function oneLine(strings, ...values) {
+  let last = strings.length - 1, re = /\n\s*/g, result = '';
+  for (let i = 0; i < last; i++) {
+    result += strings[i].replace(re, ' ') + values[i];
+  }
+  return result + strings[last].replace(re, ' ');
+}
+
+console.log(oneLine `This is a very long sentence
+                     that is split over multiple lines,
+                     but is really a single line
+                     with no newline characters.`);

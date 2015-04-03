@@ -30,7 +30,7 @@ function badOp() {
 // Call multiple asynchronous function in series
 // in a way that makes them appear to be synchronous.
 // This avoids writing code in the pyramid of doom style.
-async function work() {
+(async function work() {
   let n = 1;
   try {
     n = await double(n);
@@ -42,6 +42,6 @@ async function work() {
     // To see this happen, uncomment await of badOp.
     console.error('error:', e);
   }
-}
+})();
 
-work();
+//work();
