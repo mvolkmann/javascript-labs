@@ -12,7 +12,7 @@ arr.filter(isOdd).forEach((n) => console.log(n));
 
 // This is more efficient than the approach above.
 
-function getFilterIterator(arr, filter) {
+function getFilterIterable(arr, filter) {
   let index = 0;
   return {
     [Symbol.iterator]: () => ({
@@ -27,13 +27,13 @@ function getFilterIterator(arr, filter) {
   };
 }
 
-for (let v of getFilterIterator(arr, isOdd)) {
+for (let v of getFilterIterable(arr, isOdd)) {
   console.log(v);
 }
 
 // Here is another way to implement the same iterator.
 // It uses a class, but is a bit more verbose.
-class FilterIterator {
+class FilterIterable {
   constructor(arr, filter) {
     this.arr = arr;
     this.filter = filter;
@@ -55,6 +55,6 @@ class FilterIterator {
   }
 }
 
-for (let v of new FilterIterator(arr, isOdd)) {
+for (let v of new FilterIterable(arr, isOdd)) {
   console.log(v);
 }

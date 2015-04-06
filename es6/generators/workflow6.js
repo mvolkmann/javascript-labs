@@ -25,16 +25,16 @@ function badOp(n) {
 // that are yielded by the specified generator function.
 // It is a utility method that would only be written once.
 function async(generatorFn) {
-  let iter = generatorFn();
+  let gen = generatorFn();
   function success(result) {
-    let next = iter.next(result);
+    let next = gen.next(result);
     // next.value is a promise
-    // next.done will be false when iter.next is called
+    // next.done will be false when gen.next is called
     // after the last yield in workflow has run.
     if (!next.done) next.value.then(success, failure);
   }
   function failure(err) {
-    let next = iter.throw(err);
+    let next = gen.throw(err);
     // next.value is a promise
     // next.done will be false if the error was caught and handled.
     if (!next.done) next.value.then(success, failure);
