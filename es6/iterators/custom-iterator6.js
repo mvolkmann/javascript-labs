@@ -15,15 +15,17 @@ arr.filter(isOdd).forEach((n) => console.log(n));
 function getFilterIterable(arr, filter) {
   let index = 0;
   return {
-    [Symbol.iterator]: () => ({
-      next() {
-        while (true) {
-          if (index >= arr.length) return {done: true};
-          let value = arr[index++];
-          if (filter(value)) return {value};
+    [Symbol.iterator]() {
+      return {
+        next() {
+          while (true) {
+            if (index >= arr.length) return {done: true};
+            let value = arr[index++];
+            if (filter(value)) return {value};
+          }
         }
-      }
-    })
+      };
+    }
   };
 }
 

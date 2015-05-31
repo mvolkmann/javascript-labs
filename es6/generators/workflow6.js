@@ -27,17 +27,17 @@ function badOp(n) {
 function async(generatorFn) {
   let gen = generatorFn();
   function success(result) {
-    let next = gen.next(result);
-    // next.value is a promise
-    // next.done will be false when gen.next is called
+    let obj = gen.next(result); // provides value returned by yield
+    // obj.value is a promise
+    // obj.done will be false when gen.next is called
     // after the last yield in workflow has run.
-    if (!next.done) next.value.then(success, failure);
+    if (!obj.done) obj.value.then(success, failure);
   }
   function failure(err) {
-    let next = gen.throw(err);
-    // next.value is a promise
-    // next.done will be false if the error was caught and handled.
-    if (!next.done) next.value.then(success, failure);
+    let obj = gen.throw(err);
+    // obj.value is a promise
+    // obj.done will be false if the error was caught and handled.
+    if (!obj.done) obj.value.then(success, failure);
   }
   success();
 }

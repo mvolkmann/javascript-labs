@@ -1,3 +1,5 @@
+// This uses ES6 featues!
+// See gulpfile5.js which is ES5 and includes debugging functions.
 var connect = require('connect');
 var del = require('del');
 var gulp = require('gulp');
@@ -15,59 +17,23 @@ var paths = {
   test: 'build/**/*-test.js'
 };
 
-function arrContains(arr, value) {
-  for (var i in arr) {
-    if (arr[i] === value) return true;
-  }
-  return false;
-}
+gulp.task('hello', () => console.log('Hello, World!'));
 
-function walkPrototypes(obj, detailFor) {
-  var proto = Object.getPrototypeOf(obj);
-  if (proto) {
-    var ctor = proto.constructor;
-    console.log('\nctor name =', ctor.name);
-    console.log('prototype =', ctor.prototype);
+gulp.task('clean', cb => del(paths.build, cb));
 
-    if (!detailFor || arrContains(detailFor, ctor.name)) {
-      var p = ctor.prototype;
-      Object.keys(p).forEach(function (key) {
-        console.log(key, '=', p[key]);
-      });
-    }
-
-    walkPrototypes(proto, detailFor);
-  }
-}
-
-gulp.task('hello', function () {
-  console.log('Hello, World!');
-
-  //console.log('gulp =', gulp);
-  //walkPrototypes(gulp, ['Gulp', 'Undertaker']);
-  console.log('gulp.src =', gulp.src);
-});
-
-gulp.task('clean', function (cb) {
-  del(paths.build, cb);
-});
-
-gulp.task('connect', function () {
+gulp.task('connect', () => {
   var app = connect();
   app.use(serveStatic(__dirname));
   http.createServer(app).listen(1919);
 });
 
-gulp.task('csslint', function () {
-  return gulp.src(paths.css).
-    pipe(pi.csslint({
-      ids: false
-    })).
-    pipe(pi.csslint.reporter());
-});
+gulp.task('csslint', () =>
+  gulp.src(paths.css).
+    pipe(pi.csslint({ids: false})).
+    pipe(pi.csslint.reporter()));
 
-gulp.task('eslint', function () {
-  return gulp.src(paths.jsPlusTests).
+gulp.task('eslint', () =>
+  gulp.src(paths.jsPlusTests).
     pipe(pi.changed(paths.build)).
     pipe(pi.eslint({
       envs: ['browser', 'es6', 'node'],
@@ -76,58 +42,54 @@ gulp.task('eslint', function () {
         indent: [2, 2]
       }
     })).
-    pipe(pi.eslint.format());
-});
+    pipe(pi.eslint.format()));
 
-gulp.task('html', function () {
-  gulp.src(paths.html).
-    pipe(pi.livereload());
-});
+gulp.task('html', () =>
+  gulp.src(paths.html).pipe(pi.livereload()));
 
-gulp.task('jshint', function () {
-  return gulp.src(paths.jsPlusTests).
+gulp.task('jshint', () =>
+  gulp.src(paths.jsPlusTests).
     pipe(pi.changed(paths.build)).
     pipe(pi.jshint()).
-    pipe(pi.jshint.reporter('default'));
-});
+    pipe(pi.jshint.reporter('default')));
 
-gulp.task('less', function () {
-  return gulp.src(paths.less).
+gulp.task('less', () =>
+  gulp.src(paths.less).
     pipe(pi.changed(paths.build)).
     pipe(pi.less()).
     pipe(gulp.dest(paths.build)).
-    pipe(pi.livereload());
-});
+    pipe(pi.livereload()));
 
-gulp.task('transpile-dev', function () {
-  return gulp.src(paths.jsPlusTests).
+gulp.task('transpile-dev', () =>
+  gulp.src(paths.jsPlusTests).
     pipe(pi.changed(paths.build)).
     pipe(pi.sourcemaps.init()).
     pipe(pi.babel()).
     pipe(pi.sourcemaps.write('.')).
     pipe(gulp.dest(paths.build)).
-    pipe(pi.livereload());
-});
+    pipe(pi.livereload()));
 
-gulp.task('transpile-prod', function () {
-  return gulp.src(paths.js).
+gulp.task('transpile-prod', () =>
+  gulp.src(paths.js).
     pipe(pi.sourcemaps.init()).
     pipe(pi.babel()).
     pipe(pi.concat('all.js')).
     pipe(pi.uglify()).
     pipe(pi.sourcemaps.write('.')).
-    pipe(gulp.dest(paths.build));
-});
+    pipe(gulp.dest(paths.build)));
 
-gulp.task('test', gulp.series('transpile-dev', function () {
-  return gulp.src(paths.test).
+// This is not meant to be used directly.
+// Use the "test" task instead.
+gulp.task('jasmine', () =>
+  gulp.src(paths.test).
     pipe(pi.plumber()).
-    pipe(pi.jasmine());
-}));
+    pipe(pi.jasmine()));
 
-gulp.task('watch', function () {
+gulp.task('test', gulp.series('transpile-dev', 'jasmine'));
+
+gulp.task('watch', () => {
   pi.livereload.listen();
-  gulp.watch(paths.html, 'html');
+  gulp.watch(paths.html, gulp.series('html'));
   gulp.watch(paths.less, gulp.series('less', 'csslint'));
   gulp.watch(paths.jsPlusTests,
     gulp.series('eslint', 'jshint', 'transpile-dev'));

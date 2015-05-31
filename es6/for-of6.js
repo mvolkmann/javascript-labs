@@ -7,18 +7,44 @@ for (let stooge of stooges) {
 }
 //console.log('stooge =', stooge); // jshint catches this
 
-function forOf(obj, fn) {
-  for (let value of obj) {
-    fn(value);
+let iterable = {
+  data: [1, 2, 3],
+  index: 0,
+  [Symbol.iterator]() {
+    console.log('Symbol.iterator method called');
+    return this;
+  },
+  next() {
+    console.log('next method called');
+    return this.index < this.data.length ?
+      {value: this.data[this.index++]} :
+      {done: true};
   }
-}
-
-let obj = {
-  foo: 1,
-  bar: 2,
-  baz: 3
 };
-for (let value of obj) {
-  console.log(value);
+
+console.log('iterable has Symbol.iterator method?', Symbol.iterator in iterable);
+
+//for (let v of iterable) console.log(v);
+
+let iterator = {
+  data: [1, 2, 3],
+  index: 0,
+  next() {
+    console.log('next method called');
+    return this.index < this.data.length ?
+      {value: this.data[this.index++]} :
+      {done: true};
+  }
+};
+
+//let iterator = iterable[Symbol.iterator]();
+//for (let v of iterator) console.log(v);
+
+function* gen() {
+  yield 1;
+  yield 2;
+  yield 3;
 }
-//forOf(obj, console.log);
+console.log('gen() has Symbol.iterator method?', Symbol.iterator in gen());
+console.log('gen() has next method?', 'next' in gen());
+for (let v of gen()) console.log(v);
