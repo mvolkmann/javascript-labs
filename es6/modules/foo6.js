@@ -1,8 +1,8 @@
 'use strict';
 /*jshint esnext: true */
 
-import * as blah from './bar6';
-import {bar1, bar2} from './bar6';
+import * as blah from './bar6.js';
+import {bar1, bar2} from './bar6.js';
 
 export let foo1 = 'the value of foo1';
 console.log('foo6: bar1 =', bar1);
