@@ -31,9 +31,26 @@ let {color, size} = obj;
 console.log('color =', color); // blue
 console.log('size =', size); // 32
 // To set variables the different names than the object properties.
-let {color: c, size: s} = obj;
-console.log('c =', c); // blue
+let {color: col, size: s} = obj;
+console.log('col =', col); // blue
 console.log('s =', s); // 32
+
+// Objects with object properties.
+let team = {
+  catcher: {
+    name: 'Yadier Molina',
+    weight: 230
+  },
+  pitcher: {
+    name: 'Adam Wainwright',
+    height: 79
+  }
+};
+let {pitcher: {name}} = team;
+console.log('pitcher name =', name);
+
+let {pitcher: {name: pName}, catcher: {name: cName}} = team;
+console.log('pitcher =', pName, 'catcher =', cName);
 
 // Also works on arrays of objects
 // and objects with array properties.

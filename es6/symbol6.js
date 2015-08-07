@@ -6,7 +6,6 @@
 // but JSHint doesn't like it.
 let foo = Symbol('some description'); // note "new" keyword not used
 console.log('foo =', foo.toString());
-console.log('foo =', String(foo));
 console.log('typeof foo =', typeof foo); // "symbol"
 //console.log('foo.toString() =', foo.toString()); // "Symbol(some description)"
 
@@ -35,3 +34,24 @@ console.log('map properties =', Object.getOwnPropertyNames(map));
 
 console.log('map[foo] =', map[foo]);
 console.log('map[bar] =', map[bar]);
+
+// This demonstates use of global symbols.
+let gs1 = Symbol.for('demo');
+let gs2 = Symbol.for('demo');
+console.log(gs1 === gs2 ? 'success' : 'failure');
+console.log(Symbol.keyFor(gs1));
+
+// This demonstates use of the well-known symbol "toStringTag.
+class Weather {
+  constructor(temperature) {
+    this.temperature = temperature;
+  }
+  get [Symbol.toStringTag]() {
+    let t = this.temperature;
+    return t < 30 ? 'cold' : t > 80 ? 'hot' : 'comfortable';
+  }
+}
+let w = new Weather(81);
+console.log(w);
+console.log('' + w)
+console.log(Object.prototype.toString.call(w));

@@ -1,4 +1,5 @@
-import 'bootstrap';
+//import 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
 import * as math from './math';
 import * as strUtil from './str-util';
 import $ from 'jquery';

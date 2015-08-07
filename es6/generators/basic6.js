@@ -1,14 +1,20 @@
 'use strict';
 /*jshint esnext: true */
 
-function* gen1() {
-  yield 'foo';
-  yield 'bar';
-  yield 'baz';
+function* myGenFn() {
+  yield 1;
+  yield 2;
+  return 3;
 }
 
-for (let value of gen1()) {
-  console.log(value);
+let myGen = myGenFn();
+console.log(myGen.next()); // {value: 1, done: false}
+console.log(myGen.next()); // {value: 2, done: false}
+console.log(myGen.next()); // {value: 3, done: true}
+// Without return in myGenFn, last value is missing
+
+for (let n of myGenFn()) {
+  console.log(n); // 1, then 2, not 3
 }
 
 function* gen2(v) {

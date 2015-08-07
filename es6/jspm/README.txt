@@ -13,8 +13,8 @@ JavaScript Package Manager (jspm)
     - a good option is live-server
       * npm install -g live-server
       * live-server
-  * browse localhost:8080
-  * automatically transpiles using Traceur or 6to5
+      * this opens browser tab to localhost:8080
+  * automatically transpiles using Traceur or Babel
   * automatically generates sourcemaps
 
 - to install a module from npm and register it in config.js
@@ -58,3 +58,10 @@ JavaScript Package Manager (jspm)
   * see https://github.com/jspm/registry/wiki/Configuring-Packages-for-jspm
   * can publish in npm or GitHub
   * allows others to install them using jspm
+
+- to run this demo
+  * npm install -g jspm
+  * jspm init
+  * jspm install jquery
+  * jspm install bootstrap
+  * live-server

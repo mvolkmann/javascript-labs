@@ -19,7 +19,7 @@ function getFilterIterable(arr, filter) {
       return {
         next() {
           while (true) {
-            if (index >= arr.length) return {done: true};
+            if (index === arr.length) return {done: true};
             let value = arr[index++];
             if (filter(value)) return {value};
           }
@@ -48,7 +48,7 @@ class FilterIterable {
     return {
       next() {
         while (true) {
-          if (index >= arr.length) return {done: true};
+          if (index === arr.length) return {done: true};
           let value = arr[index++];
           if (filter(value)) return {value};
         }
