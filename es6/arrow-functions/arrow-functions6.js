@@ -6,7 +6,7 @@ let doubled = arr.map(x => x * 2);
 console.log(doubled);
 
 let product = (a, b) => a * b;
-console.log('name of function is', product.name); // undefined; should it be "product"?
+console.log('name of function is', product.name); // product
 console.log(product(2, 3));
 
 let average = numbers => {

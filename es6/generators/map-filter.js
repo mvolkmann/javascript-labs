@@ -1,3 +1,5 @@
+// See your star-it library on Github for more.
+
 function* map(iterable, fn) {
   for (let elem of iterable) {
     yield fn(elem);

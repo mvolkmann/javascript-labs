@@ -7,6 +7,10 @@ for (let stooge of stooges) {
 }
 //console.log('stooge =', stooge); // jshint catches this
 
+for (let [index, stooge] of stooges.entries()) {
+  console.log(index, stooge);
+}
+
 let iterable = {
   data: [1, 2, 3],
   index: 0,

@@ -22,3 +22,6 @@ function* gen() {
 }
 
 dump('gen', gen());
+
+console.log('obj is both iterable and iterator?',
+  iter[Symbol.iterator].call(iter) === iter);

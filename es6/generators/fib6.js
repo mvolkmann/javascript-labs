@@ -32,9 +32,34 @@ function* fib() {
 }
 
 // Could use a takeWhile generator for this.
-for (let value of fib()) {
+const gen = fib();
+for (let value of gen) {
   if (value > 100) break;
+  //if (value > 100) gen.return(); // another way to stop iteration
   console.log(value);
+}
+
+let fibObj = {
+  * [Symbol.iterator]() {
+    let [prev, curr] = [0, 1];
+    while (true) {
+      [prev, curr] = [curr, prev + curr];
+      yield curr;
+    }
+  }
+};
+
+console.log('first time using fibObj');
+for (const n of fibObj) {
+  if (n > 100) break;
+  console.log(n);
+}
+
+console.log('second time using fibObj');
+// This works!
+for (const n of fibObj) {
+  if (n > 100) break;
+  console.log(n);
 }
 
 let arr = [
