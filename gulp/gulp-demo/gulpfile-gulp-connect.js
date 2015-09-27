@@ -98,7 +98,7 @@ gulp.task('transpile-prod', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(paths.html, 'html');
+  gulp.watch(paths.html, gulp.series('html'));
   gulp.watch(paths.less, gulp.series('less', 'csslint'));
   gulp.watch(paths.jsPlusTests,
     gulp.series('eslint', 'jshint', 'transpile-dev', 'test'));
