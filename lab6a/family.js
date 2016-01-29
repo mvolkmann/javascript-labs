@@ -9,8 +9,7 @@ function appendCell(row, value) {
   var child = typeof value === 'string' ?
     document.createTextNode(value) : value;
 
-  // docs say insertCell index defaults to -1, but it doesn't
-  row.insertCell(-1).appendChild(child);
+  row.insertCell().appendChild(child);
 }
 
 // Adds a row to the family table using data from the inputs.
@@ -21,8 +20,7 @@ function addRow() {
   checkbox.setAttribute('type', 'checkbox');
   checkbox.onchange = checkboxChange;
 
-  // docs say insertRow index defaults to -1, but it doesn't
-  row = table.insertRow(-1);
+  row = table.insertRow();
   appendCell(row, checkbox);
   appendCell(row, nameInput.value);
   appendCell(row, relationshipSelect.value);
