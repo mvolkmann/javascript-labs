@@ -21,7 +21,10 @@ module.exports = {
           (consequent === 'false' && alternate === 'true')) {
           context.report({
             node,
-            message: 'Unnecessary ternary; Embrace boolean expressions'
+            message: 'Unnecessary ternary; Embrace boolean expressions',
+            fix(fixer) {
+              return fixer.remove(node);
+            }
           });
         }
       }
