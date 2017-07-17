@@ -1,6 +1,6 @@
 async function doSomething(good) {
-  if (good) return 'yes';
-  throw new Error('bad');
+  if (good) return 'yes'; // returns a Promise that resolves to "yes"
+  throw new Error('bad'); // returns a Promise that rejects with "bad"
 }
 
 async function demo() {
